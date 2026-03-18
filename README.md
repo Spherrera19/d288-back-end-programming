@@ -30,7 +30,9 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 >This repository contains the minimally viable product (MVP) for migrating a legacy travel agency back-end to a modern Java Spring Boot framework. This RESTful API is designed to interface with an existing Angular front-end application to manage vacation packages, excursions, and customer cart checkouts.
 
 ## Step A: Project Initialization
+
 >The foundational architecture of this project was generated using Spring Initializr with a Maven build automation tool and Java. The following dependencies were integrated to support the application's required functionality:
+
 **Spring Data JPA:** Used for Object-Relational Mapping (ORM) to map Java objects/entities directly to the database tables, eliminating the need for manual SQL queries.
 **Rest Repositories (Spring Data REST):** Utilized to quickly expose the JPA repositories as RESTful web endpoints, allowing the Angular front-end to seamlessly fetch and post data over HTTP.
 **MySQL Driver:** The essential database connector allowing the Spring Boot application to communicate with the provided MySQL database.
@@ -38,3 +40,10 @@ Take this opportunity to create or add to a simple resume portfolio to highlight
 
 ## Step B: Version Control
 >This project is tracked using Git and hosted on GitLab. The repository was cloned locally, populated with the Spring Boot skeleton, and successfully pushed to the remote server to establish the working_branch and track step completion.
+
+## Step C: Application Architecture and Configuration
+Created the requisite files and copied the Database config files from the lab environment 
+
+* **Created Package Hierarchy:** Generated the `controllers`, `entities`, `dao`, `services`, and `config` packages.
+* **Configured REST Data:** Imported the provided `RestDataConfig.java` file into the `config` package and updated its paths.
+* **Configured Database Connection:** Populated the `application.properties` file in the resources folder with the lab's MySQL credentials to successfully connect the Java backend to the database.
