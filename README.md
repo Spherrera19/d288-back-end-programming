@@ -25,3 +25,40 @@ If you need additional support, please navigate to the course page and reach out
 ## FUTURE USE
 Take this opportunity to create or add to a simple resume portfolio to highlight and showcase your work for future use in career search, experience, and education!
 
+# D288 Back-End Programming: Task tracking
+>Created for project tracking
+>This repository contains the minimally viable product (MVP) for migrating a legacy travel agency back-end to a modern Java Spring Boot framework. This RESTful API is designed to interface with an existing Angular front-end application to manage vacation packages, excursions, and customer cart checkouts.
+
+## Step A: Project Initialization
+
+>The foundational architecture of this project was generated using Spring Initializr with a Maven build automation tool and Java. The following dependencies were integrated to support the application's required functionality:
+
+**Spring Data JPA:** Used for Object-Relational Mapping (ORM) to map Java objects/entities directly to the database tables, eliminating the need for manual SQL queries.
+**Rest Repositories (Spring Data REST):** Utilized to quickly expose the JPA repositories as RESTful web endpoints, allowing the Angular front-end to seamlessly fetch and post data over HTTP.
+**MySQL Driver:** The essential database connector allowing the Spring Boot application to communicate with the provided MySQL database.
+**Lombok:** A Java library used to reduce boilerplate code by automatically generating getters, setters, constructors, and other essential methods via annotations.
+
+## Step B: Version Control
+>This project is tracked using Git and hosted on GitLab. The repository was cloned locally, populated with the Spring Boot skeleton, and successfully pushed to the remote server to establish the working_branch and track step completion.
+
+## Step C: Application Architecture and Configuration
+Created the requisite files and copied the Database config files from the lab environment 
+
+* **Created Package Hierarchy:** Generated the `controllers`, `entities`, `dao`, `services`, and `config` packages.
+* **Configured REST Data:** Imported the provided `RestDataConfig.java` file into the `config` package and updated its paths.
+* **Configured Database Connection:** Populated the `application.properties` file in the resources folder with the lab's MySQL credentials to successfully connect the Java backend to the database.
+
+## Step D: Domain Model and Entity Mapping
+database domain model constructed by translating the provided UML Class Diagram and Entity-Relationship Diagram into Java classes within the `entities` package:
+
+* **Object-Relational Mapping (ORM):** Utilized Spring Data JPA annotations (`@Entity`, `@Table`, `@Id`, `@Column`) to map Java classes directly to MySQL database tables.
+* **Entity Creation:** Created the `Country`, `Division`, `Customer`, `Cart`, `CartItem`, `Vacation`, and `Excursion` entities, alongside the `StatusType` enumerator.
+* **Relationship Mapping:** Established strict table relationships using `@ManyToOne`, `@OneToMany`, and `@ManyToMany` (with `@JoinTable` for the `excursion_cartitem` table) to enforce database integrity and mirror the UML specifications.
+* **Boilerplate Reduction:** Applied Lombok `@Getter` and `@Setter` annotations to keep the entity classes clean, and utilized Hibernate's `@CreationTimestamp` and `@UpdateTimestamp` to automatically manage record lifecycles.
+
+
+## Step E: Data Access Objects (DAO)
+To facilitate communication between the application and the MySQL database, Data Access Object interfaces were established:
+* **Repository Creation:** Created seven repository interfaces within the `dao` package (`CustomerRepository`, `DivisionRepository`, `CountryRepository`, `CartRepository`, `CartItemRepository`, `VacationRepository`, `ExcursionRepository`).
+* **JpaRepository Integration:** Extended Spring's `JpaRepository` for each interface to automatically inherit standard CRUD (Create, Read, Update, Delete) database operations without requiring manual SQL queries.
+* **CORS Configuration:** Applied the `@CrossOrigin("http://localhost:4200")` annotation to all repositories
