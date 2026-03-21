@@ -47,3 +47,11 @@ Created the requisite files and copied the Database config files from the lab en
 * **Created Package Hierarchy:** Generated the `controllers`, `entities`, `dao`, `services`, and `config` packages.
 * **Configured REST Data:** Imported the provided `RestDataConfig.java` file into the `config` package and updated its paths.
 * **Configured Database Connection:** Populated the `application.properties` file in the resources folder with the lab's MySQL credentials to successfully connect the Java backend to the database.
+
+## Step D: Domain Model and Entity Mapping
+database domain model constructed by translating the provided UML Class Diagram and Entity-Relationship Diagram into Java classes within the `entities` package:
+
+* **Object-Relational Mapping (ORM):** Utilized Spring Data JPA annotations (`@Entity`, `@Table`, `@Id`, `@Column`) to map Java classes directly to MySQL database tables.
+* **Entity Creation:** Created the `Country`, `Division`, `Customer`, `Cart`, `CartItem`, `Vacation`, and `Excursion` entities, alongside the `StatusType` enumerator.
+* **Relationship Mapping:** Established strict table relationships using `@ManyToOne`, `@OneToMany`, and `@ManyToMany` (with `@JoinTable` for the `excursion_cartitem` table) to enforce database integrity and mirror the UML specifications.
+* **Boilerplate Reduction:** Applied Lombok `@Getter` and `@Setter` annotations to keep the entity classes clean, and utilized Hibernate's `@CreationTimestamp` and `@UpdateTimestamp` to automatically manage record lifecycles.
