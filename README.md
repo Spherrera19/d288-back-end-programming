@@ -55,3 +55,10 @@ database domain model constructed by translating the provided UML Class Diagram 
 * **Entity Creation:** Created the `Country`, `Division`, `Customer`, `Cart`, `CartItem`, `Vacation`, and `Excursion` entities, alongside the `StatusType` enumerator.
 * **Relationship Mapping:** Established strict table relationships using `@ManyToOne`, `@OneToMany`, and `@ManyToMany` (with `@JoinTable` for the `excursion_cartitem` table) to enforce database integrity and mirror the UML specifications.
 * **Boilerplate Reduction:** Applied Lombok `@Getter` and `@Setter` annotations to keep the entity classes clean, and utilized Hibernate's `@CreationTimestamp` and `@UpdateTimestamp` to automatically manage record lifecycles.
+
+
+## Step E: Data Access Objects (DAO)
+To facilitate communication between the application and the MySQL database, Data Access Object interfaces were established:
+* **Repository Creation:** Created seven repository interfaces within the `dao` package (`CustomerRepository`, `DivisionRepository`, `CountryRepository`, `CartRepository`, `CartItemRepository`, `VacationRepository`, `ExcursionRepository`).
+* **JpaRepository Integration:** Extended Spring's `JpaRepository` for each interface to automatically inherit standard CRUD (Create, Read, Update, Delete) database operations without requiring manual SQL queries.
+* **CORS Configuration:** Applied the `@CrossOrigin("http://localhost:4200")` annotation to all repositories
