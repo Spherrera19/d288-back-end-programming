@@ -67,3 +67,11 @@ To facilitate communication between the application and the MySQL database, Data
 To enforce the data requirements of the Angular front-end and prevent database errors, backend validation was integrated into the checkout process:
 * **Purchase Validation:** Implemented safety checks within the `CheckoutServiceImpl` to verify that the incoming `Customer`, `Cart`, and `CartItem` objects are not null or empty before initializing a database transaction.
 * **Error Handling:** Updated the `PurchaseResponse` Data Transfer Object to standardize constructors, allowing the service to intercept invalid payloads and return a specific "Error: Invalid Purchase Data" message to the front-end instead of attempting to save an empty or broken order.
+
+
+## Step H: REST Controller Implementation
+To expose the backend checkout logic to the Angular front-end, a dedicated REST controller was established:
+* **Controller Creation:** Developed the `CheckoutController` class within the `controllers` package, mapping it to the `/api/checkout` endpoint.
+* **POST Mapping:** Implemented a `@PostMapping("/purchase")` method to receive incoming checkout requests.
+* **Data Binding:** Utilized the `@RequestBody` annotation to seamlessly deserialize the incoming JSON payload into the `Purchase` DTO.
+* **CORS Support:** Added `@CrossOrigin` to ensure smooth communication between the front-end and back-end servers during local development.
