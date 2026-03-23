@@ -75,3 +75,9 @@ To expose the backend checkout logic to the Angular front-end, a dedicated REST 
 * **POST Mapping:** Implemented a `@PostMapping("/purchase")` method to receive incoming checkout requests.
 * **Data Binding:** Utilized the `@RequestBody` annotation to seamlessly deserialize the incoming JSON payload into the `Purchase` DTO.
 * **CORS Support:** Added `@CrossOrigin` to ensure smooth communication between the front-end and back-end servers during local development.
+
+## Step I: Programmatic Data Initialization
+To ensure the application is immediately testable upon launch, a startup script was implemented to automatically populate the database with sample data:
+* **Startup Execution:** Created a `Bootstrapper` class within the `bootstrap` package that implements Spring Boot's `CommandLineRunner` interface. This allows specific data-generation code to execute automatically the moment the application starts.
+* **Sample Data Generation:** Programmatically instantiated and saved five unique `Customer` records. The script dynamically fetches an existing `Division` from the database and maps it to the new customers to maintain strict relational database integrity.
+* **Data Preservation:** Integrated conditional logic (`customerRepository.count()`) to verify the current state of the database before injecting data. This ensures the sample customers are only generated if the database is empty (or only contains the WGU default user), preventing duplicate entries or overwriting data on subsequent application restarts.
