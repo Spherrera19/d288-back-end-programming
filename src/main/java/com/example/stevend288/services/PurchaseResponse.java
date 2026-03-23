@@ -1,15 +1,14 @@
 package com.example.stevend288.services;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class PurchaseResponse {
-    private final String orderTrackingNumber;
-
-    public PurchaseResponse(String orderTrackingNumber, String orderTrackingNumber1) {
-
-        this.orderTrackingNumber = orderTrackingNumber1;
-    }
+    private String orderTrackingNumber;
 }

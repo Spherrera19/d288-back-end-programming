@@ -26,6 +26,12 @@ public class CheckoutServiceImpl implements CheckoutService {
         // 1. Retrieve the cart info from the DTO
         Cart cart = purchase.getCart();
 
+        // STEP G: VALIDATION
+        // Check if the payload is empty or missing vital data
+        if (customer == null || cart == null || cartItems == null || cartItems.isEmpty()) {
+            return new PurchaseResponse("Error: Invalid Purchase Data");
+        }
+
         // 2. Generate a unique tracking number (UUID)
         String orderTrackingNumber = UUID.randomUUID().toString();
         cart.setOrderTrackingNumber(orderTrackingNumber);

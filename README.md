@@ -62,3 +62,8 @@ To facilitate communication between the application and the MySQL database, Data
 * **Repository Creation:** Created seven repository interfaces within the `dao` package (`CustomerRepository`, `DivisionRepository`, `CountryRepository`, `CartRepository`, `CartItemRepository`, `VacationRepository`, `ExcursionRepository`).
 * **JpaRepository Integration:** Extended Spring's `JpaRepository` for each interface to automatically inherit standard CRUD (Create, Read, Update, Delete) database operations without requiring manual SQL queries.
 * **CORS Configuration:** Applied the `@CrossOrigin("http://localhost:4200")` annotation to all repositories
+
+## Step G: Input Validation and Data Integrity
+To enforce the data requirements of the Angular front-end and prevent database errors, backend validation was integrated into the checkout process:
+* **Purchase Validation:** Implemented safety checks within the `CheckoutServiceImpl` to verify that the incoming `Customer`, `Cart`, and `CartItem` objects are not null or empty before initializing a database transaction.
+* **Error Handling:** Updated the `PurchaseResponse` Data Transfer Object to standardize constructors, allowing the service to intercept invalid payloads and return a specific "Error: Invalid Purchase Data" message to the front-end instead of attempting to save an empty or broken order.
