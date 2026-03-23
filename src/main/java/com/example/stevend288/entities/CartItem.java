@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Set;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "cart_items")
