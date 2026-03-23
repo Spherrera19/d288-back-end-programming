@@ -49,5 +49,5 @@ public class Cart {
 
     // ONE Cart can hold MANY CartItems
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Set<CartItem> cartItem;
+    private Set<CartItem> cartItem = new HashSet<>();
 }

@@ -43,5 +43,5 @@ public class Vacation {
 
     // ONE Vacation can have MANY Excursions
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "vacation")
-    private Set<Excursion> excursions;
+    private Set<Excursion> excursions = new HashSet<>();
 }

@@ -50,5 +50,5 @@ public class Customer {
 
     // ONE Customer can have MANY Carts
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    private Set<Cart> carts;
+    private Set<Cart> carts = new HashSet<>();
 }

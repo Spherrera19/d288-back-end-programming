@@ -41,5 +41,5 @@ public class Division {
 
     // ONE Division can have MANY Customers
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "division")
-    private Set<Customer> customers;
+    private Set<Customer> customers = new HashSet<>();
 }

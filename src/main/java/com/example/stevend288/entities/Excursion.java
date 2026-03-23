@@ -45,5 +45,5 @@ public class Excursion {
 
     // MANY Excursions can belong to MANY CartItems
     @ManyToMany(mappedBy = "excursions")
-    private Set<CartItem> cartitems;
+    private Set<CartItem> cartitems = new HashSet<>();
 }

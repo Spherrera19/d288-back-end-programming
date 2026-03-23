@@ -34,5 +34,5 @@ public class Country {
 
     // A Country can have MANY Divisions
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "country")
-    private Set<Division> divisions;
+    private Set<Division> divisions = new HashSet<>();
 }
